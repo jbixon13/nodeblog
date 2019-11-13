@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      .content.l-page
+        a(class="logo" href="/") 
+          img(src="/public/images/logo.png")
+        .nav
+          a(href="/") Home
+          a(href="/about") About
+          a(href="/contact") Contact
+    block content
+    footer 
+      .l-page
+        .description
+          p Node.js, Express, Jade, D3, Deck.gl
+        .nav
+          p Test footer links
