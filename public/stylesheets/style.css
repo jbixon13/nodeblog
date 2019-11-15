@@ -69,6 +69,11 @@ header svg {
   margin-right: 2px;
 }
 
+.main-logo {
+  width: 24px;
+  margin-top: 15px;
+}
+
 footer {
   display: block;
   color: rgba(255, 255, 255, .4);
@@ -381,6 +386,10 @@ figure p {
   fill: none;
   stroke: rgba(255, 255, 255, 0.8);
   stroke-width: 3px;
+  }
+
+  .main-logo {
+    width: 36px;
   }
   
   header .logo {
