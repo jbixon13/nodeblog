@@ -35,4 +35,12 @@ router.get('/deckgl', function(req, res){
   });
 });
 
+router.get('/new-blog', function(req, res){
+  res.render('post-new-blog', {
+    title: 'New Year, New (First) Blog',
+    articleDescription: 'Trying my best.',
+    articleDate: 'Jan. 24, 2019'
+  });
+});
+
 module.exports = router;
