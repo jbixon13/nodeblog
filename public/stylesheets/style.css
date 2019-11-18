@@ -315,7 +315,10 @@ figure p {
   color: #3b3b3b;
 }
 
-.test-article h1, h2, h3, p {
+.test-article h1,
+.test-article h2,
+.test-article h3,
+.test-article p {
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -455,7 +458,10 @@ figure p {
     font-size: 16px;
   }
 
-  .test-article h1, h2, h3, p {
+  .test-article h1,
+  .test-article h2,
+  .test-article h3,
+  .test-article p {
     margin-left: 12%;
     margin-right: 25%;
   }
@@ -492,7 +498,10 @@ figure p {
     margin-right: 20%;
   }
 
-  .test-article h1, h2, h3, p {
+  .test-article h1,
+  .test-article h2,
+  .test-article h3,
+  .test-article p {
     margin-left: 20%;
     margin-right: 20%;
   }
