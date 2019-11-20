@@ -5,7 +5,7 @@ block article-content
         h2 Intro
         p  Something here 
         h2 Deck.gl Testing
-        div(id="deck-container")
+        div(class="deck-container", id="map1")
             canvas
         h2 Conclusion
 
@@ -17,7 +17,7 @@ block article-content
         new deck.DeckGL({
         mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
         mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
-        container: 'deck-container',
+        container: 'map1',
         longitude: -122.45,
         latitude: 37.8,
         zoom: 14,

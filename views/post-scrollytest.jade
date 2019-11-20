@@ -43,26 +43,12 @@ block article-content
                 div(class="step", data-step="4")
                     p Step 4
             figure(class="deck-figure")
-                div(id="deck-container")
+                div(class="deck-container", id="map1")
                     canvas
         h3 Scrolly Overlay - Deck.gl
         section(class="scrolly-overlay")
             figure(class="deck-figure")
-                div(id="deck-container")
-                    canvas        
-            article
-                div(class="step", data-step="1")
-                    p Step 1
-                div(class="step", data-step="2")
-                    p Step 2
-                div(class="step", data-step="3")
-                    p Step 3
-                div(class="step", data-step="4")
-                    p Step 4
-        h3 Scrolly Overlay - Deck.gl
-        section(class="scrolly-overlay")
-            figure(class="deck-figure")
-                div(id="deck-container")
+                div(class="deck-container", id="map2")
                     canvas        
             article
                 div(class="step", data-step="1")
@@ -87,7 +73,27 @@ block article-content
         new deck.DeckGL({
         mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
         mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
-        container: 'deck-container',
+        container: 'map1',
+        longitude: -122.45,
+        latitude: 37.8,
+        zoom: 14,
+        pitch: 60,
+        layers: [
+            new deck.ScatterplotLayer({
+            data: [
+                {position: [-122.45, 37.8], color: [255, 0, 0], radius: 100}
+            ],
+            getColor: d => d.color,
+            getRadius: d => d.radius
+            })
+        ]
+        });
+
+    script.
+        new deck.DeckGL({
+        mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
+        mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
+        container: 'map2',
         longitude: -122.45,
         latitude: 37.8,
         zoom: 14,
