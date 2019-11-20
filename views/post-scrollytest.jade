@@ -35,13 +35,13 @@ block article-content
         section(class="scrolly-side")
             article
                 div(class="step", data-step="1")
-                    p Step 1
+                    p This is Center City, Philadelphia
                 div(class="step", data-step="2")
-                    p Step 2
+                    p There are lots of tall buildings
                 div(class="step", data-step="3")
-                    p Step 3
+                    p I have disabled user input on the map
                 div(class="step", data-step="4")
-                    p Step 4
+                    p This is to test out storytelling with maps
             figure(class="deck-figure")
                 div(class="deck-container", id="map1")
                     canvas
@@ -52,13 +52,13 @@ block article-content
                     canvas        
             article
                 div(class="step", data-step="1")
-                    p Step 1
+                    p This is Federal Hill, Baltimore
                 div(class="step", data-step="2")
-                    p Step 2
+                    p I live here!
                 div(class="step", data-step="3")
-                    p Step 3
+                    p I have disabled user input on this map as well
                 div(class="step", data-step="4")
-                    p Step 4
+                    p This looks pretty cool
 
         h3 Conclusion
         p Scroll
@@ -74,19 +74,11 @@ block article-content
         mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
         mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
         container: 'map1',
-        longitude: -122.45,
-        latitude: 37.8,
-        zoom: 14,
+        controller: false,
+        longitude: -75.166,
+        latitude: 39.95,
+        zoom: 15,
         pitch: 60,
-        layers: [
-            new deck.ScatterplotLayer({
-            data: [
-                {position: [-122.45, 37.8], color: [255, 0, 0], radius: 100}
-            ],
-            getColor: d => d.color,
-            getRadius: d => d.radius
-            })
-        ]
         });
 
     script.
@@ -94,17 +86,9 @@ block article-content
         mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
         mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
         container: 'map2',
-        longitude: -122.45,
-        latitude: 37.8,
-        zoom: 14,
+        controller: false,
+        longitude: -76.61,
+        latitude: 39.282,
+        zoom: 15,
         pitch: 60,
-        layers: [
-            new deck.ScatterplotLayer({
-            data: [
-                {position: [-122.45, 37.8], color: [255, 0, 0], radius: 100}
-            ],
-            getColor: d => d.color,
-            getRadius: d => d.radius
-            })
-        ]
         });
