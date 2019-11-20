@@ -6,7 +6,7 @@ block article-content
         p  While deep neural networks have overwhelmingly established state-of-the-art results in many artificial intelligence problems, they can still be difficult to develop and debug. Recent research on deep learning understanding has focused on feature visualization 
         h2 Scrolly Testing
         h3 Scrolly Side - Basic
-        section(id="scrolly-side")
+        section(class="scrolly-side")
             article
                 div(class="step", data-step="1")
                     p Step 1
@@ -19,7 +19,7 @@ block article-content
             figure
                 p 0
         h3 Scrolly Overlay - Basic
-        section(id="scrolly-overlay")
+        section(class="scrolly-overlay")
             figure
                 p 0
             article
@@ -32,7 +32,7 @@ block article-content
                 div(class="step", data-step="4")
                     p Step 4
         h3 Scrolly Side - Image
-        section(id="scrolly-side")
+        section(class="scrolly-side")
             article
                 div(class="step", data-step="1")
                     p Step 1
@@ -45,7 +45,7 @@ block article-content
             figure
                 img(src='https://camo.githubusercontent.com/5da3ed41336cdccc6f186d13e9de7e97cced98b3/687474703a2f2f692e696d6775722e636f6d2f6d7666766766302e6a7067')
         h3 Scrolly Overlay - Image
-        section(id="scrolly-overlay")
+        section(class="scrolly-overlay")
             figure
                 img(src='https://camo.githubusercontent.com/5da3ed41336cdccc6f186d13e9de7e97cced98b3/687474703a2f2f692e696d6775722e636f6d2f6d7666766766302e6a7067')
             article
@@ -57,7 +57,74 @@ block article-content
                     p Step 3
                 div(class="step", data-step="4")
                     p Step 4
+        h3 Scrolly Side - Deck.gl
+        section(class="scrolly-side")
+            article
+                div(class="step", data-step="1")
+                    p Step 1
+                div(class="step", data-step="2")
+                    p Step 2
+                div(class="step", data-step="3")
+                    p Step 3
+                div(class="step", data-step="4")
+                    p Step 4
+            figure(class="deck-figure")
+                div(id="deck-container")
+                    canvas
+        h3 Scrolly Overlay - Deck.gl
+        section(class="scrolly-overlay")
+            figure(class="deck-figure")
+                div(id="deck-container")
+                    canvas        
+            article
+                div(class="step", data-step="1")
+                    p Step 1
+                div(class="step", data-step="2")
+                    p Step 2
+                div(class="step", data-step="3")
+                    p Step 3
+                div(class="step", data-step="4")
+                    p Step 4
+        h3 Scrolly Overlay - Deck.gl
+        section(class="scrolly-overlay")
+            figure(class="deck-figure")
+                div(id="deck-container")
+                    canvas        
+            article
+                div(class="step", data-step="1")
+                    p Step 1
+                div(class="step", data-step="2")
+                    p Step 2
+                div(class="step", data-step="3")
+                    p Step 3
+                div(class="step", data-step="4")
+                    p Step 4
+
         h3 Conclusion
         p Scroll
         p Scroll
         p Scroll
+    
+    script(src="https://unpkg.com/deck.gl@latest/dist.min.js")
+    script(src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js")
+    link(href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel='stylesheet')
+    
+    script.
+        new deck.DeckGL({
+        mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
+        mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
+        container: 'deck-container',
+        longitude: -122.45,
+        latitude: 37.8,
+        zoom: 14,
+        pitch: 60,
+        layers: [
+            new deck.ScatterplotLayer({
+            data: [
+                {position: [-122.45, 37.8], color: [255, 0, 0], radius: 100}
+            ],
+            getColor: d => d.color,
+            getRadius: d => d.radius
+            })
+        ]
+        });
