@@ -5,6 +5,7 @@ block article-content
         h2 Intro
         p  While deep neural networks have overwhelmingly established state-of-the-art results in many artificial intelligence problems, they can still be difficult to develop and debug. Recent research on deep learning understanding has focused on feature visualization 
         h2 Scrolly Testing
+       
         h3 Scrolly Side - Image
         section(class="scrolly-side")
             article
@@ -18,6 +19,7 @@ block article-content
                     p Step 4
             figure
                 img(src='https://camo.githubusercontent.com/5da3ed41336cdccc6f186d13e9de7e97cced98b3/687474703a2f2f692e696d6775722e636f6d2f6d7666766766302e6a7067')
+        
         h3 Scrolly Overlay - Image
         section(class="scrolly-overlay")
             figure
@@ -31,6 +33,7 @@ block article-content
                     p Step 3
                 div(class="step", data-step="4")
                     p Step 4
+
         h3 Scrolly Side - Deck.gl
         section(class="scrolly-side")
             article
@@ -44,12 +47,11 @@ block article-content
                     p This is to test out storytelling with maps
             figure(class="deck-figure")
                 div(class="deck-container", id="map1")
-                    canvas
+
         h3 Scrolly Overlay - Deck.gl
         section(class="scrolly-overlay")
             figure(class="deck-figure")
                 div(class="deck-container", id="map2")
-                    canvas        
             article
                 div(class="step", data-step="1")
                     p This is Federal Hill, Baltimore
@@ -59,6 +61,20 @@ block article-content
                     p I have disabled user input on this map as well
                 div(class="step", data-step="4")
                     p This looks pretty cool
+
+        h3 Scrolly Side - Deck.gl Transitions
+        section(class="scrolly-side")
+            article
+                div(class="step", data-step="1")
+                    p This is Philadelphia
+                div(class="step", data-step="2")
+                    p There are lots of tall buildings, but you can't see them here
+                div(class="step transition", data-step="3")
+                    p Let's focus on Center City so we can see those buildings.
+                div(class="step", data-step="4")
+                    p This is to test out storytelling with maps
+            figure(class="deck-figure")
+                div(class="deck-container", id="map3")
 
         h2 Conclusion
         p Scroll
@@ -94,3 +110,65 @@ block article-content
         zoom: 15,
         pitch: 60,
         });
+    
+    script. 
+        const {DeckGL, LinearInterpolator} = deck;
+
+        const VIEWS = [
+            {"scene":"enter", "latitude":39.95, "longitude":-75.166, "zoom":13},
+            {"scene":"exit", "latitude":39.95, "longitude":-75.166, "zoom":15}
+        ];
+
+        const deckglTest = new DeckGL ({
+            mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
+            mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
+            container: 'map3',
+            controller: false,
+            touchAction: 'pan-y',
+            viewState: {
+                longitude: VIEWS[0].longitude,
+                latitude: VIEWS[0].latitude,
+                zoom: VIEWS[0].zoom,
+                pitch: 60
+            }
+        });
+    
+    script(src="https://unpkg.com/scrollama")
+    script(src="https://d3js.org/d3.v5.js")
+    script. 
+        var scroller = scrollama();
+
+        function handleStepEnter(response) {
+            console.log(response)
+            var el = d3.select(response.element);
+            deckglTest.setProps({
+                viewState: {
+                    longitude: VIEWS[1].longitude,
+                    latitude: VIEWS[1].latitude,
+                    zoom: VIEWS[1].zoom,
+                    pitch: 60
+                }
+            })
+        }
+
+        function handleStepExit(response) {
+            if (response.direction === 'up') {
+                deckglTest.setProps({
+                    viewState: {
+                        longitude: VIEWS[0].longitude,
+                        latitude: VIEWS[0].latitude,
+                        zoom: VIEWS[0].zoom,
+                        pitch: 60
+                    }
+                })
+            }
+        }
+
+        scroller 
+        .setup({
+            step: '.transition',
+            debug: false,
+            offset: 0.6
+        })
+        .onStepEnter(handleStepEnter)
+        .onStepExit(handleStepExit);
