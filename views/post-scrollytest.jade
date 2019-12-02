@@ -76,11 +76,27 @@ block article-content
             figure(class="deck-figure")
                 div(class="deck-container", id="map3")
 
+        h3 Scrolly Vers - Deck.gl
+        section(class="scrolly-vers")
+            figure(class="deck-figure")
+                div(class="deck-container", id="map4")
+            article
+                div(class="step", data-step="1")
+                    p This is Federal Hill, Baltimore
+                div(class="step", data-step="2")
+                    p I live here!
+                div(class="step", data-step="3")
+                    p This is a versetile Scrolly section
+                div(class="step", data-step="4")
+                    p This means it will move the text to the side when viewed on desktop and will overlay the text on mobile.
+
         h2 Conclusion
         p Scroll
         p Scroll
         p Scroll
     
+    script(src="https://unpkg.com/scrollama")
+    script(src="https://d3js.org/d3.v5.js")
     script(src="https://unpkg.com/deck.gl@latest/dist.min.js")
     script(src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js")
     link(href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel='stylesheet')
@@ -133,20 +149,20 @@ block article-content
             }
         });
     
-    script(src="https://unpkg.com/scrollama")
-    script(src="https://d3js.org/d3.v5.js")
+
     script. 
         var scroller = scrollama();
 
         function handleStepEnter(response) {
             console.log(response)
-            var el = d3.select(response.element);
             deckglTest.setProps({
                 viewState: {
                     longitude: VIEWS[1].longitude,
                     latitude: VIEWS[1].latitude,
                     zoom: VIEWS[1].zoom,
-                    pitch: 60
+                    pitch: 60,
+                    transitionInterpolator: new LinearInterpolator(['zoom']),
+                    transitionDuration: 5000
                 }
             })
         }
@@ -168,7 +184,21 @@ block article-content
         .setup({
             step: '.transition',
             debug: false,
-            offset: 0.6
+            offset: 0.4
         })
         .onStepEnter(handleStepEnter)
         .onStepExit(handleStepExit);
+    
+    script.
+        new deck.DeckGL({
+        mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
+        mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
+        container: 'map4',
+        controller: false,
+        touchAction: 'pan-y',
+        longitude: -76.61,
+        latitude: 39.282,
+        zoom: 15,
+        pitch: 60,
+        });
+
