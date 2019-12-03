@@ -147,16 +147,17 @@ footer .nav {
 
 .article-byline {
   contain: layout;
-  contain: style;
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 0.8rem;
   line-height: 1.8rem;
   padding: 1.5rem 0;
   min-height: 1.8rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.base-grid, .article-title, .article-byline, .article-contents {
+.base-grid, .article-title, .article-contents {
   display: grid;
   justify-items: stretch;
   grid-template-columns: [screen-start] 8px [page-start kicker-start text-start gutter-start middle-start] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 8px [screen-end];
@@ -421,6 +422,13 @@ figure p {
   height: 50vh;
 }
 
+@media (min-width: 450px) {
+
+  .article-byline .authors-affiliations {
+    grid-column-end: span 1;
+  }
+}
+
 @media (min-width: 768px) {
 
   .l-page {
@@ -482,7 +490,7 @@ figure p {
     font-size: 50px;
   }
 
-  .base-grid, .article-title, .article-byline, .article-contents {
+  .base-grid, .article-title, .article-contents {
     grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 45px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
     grid-column-gap: 16px;
   }
@@ -491,11 +499,18 @@ figure p {
     grid-column-gap: 16px;
   }
 
+  .article-byline {
+    margin-left: 12%;
+    margin-right: 25%;
+  }
+
+
   .article-byline .byline {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   .article-byline .authors-affiliations {
+    grid-column-end: span 2;
     margin-bottom: 0;
   }
 
@@ -567,7 +582,7 @@ figure p {
 
 @media (min-width: 1000px) {
 
-  .base-grid, .article-title, .article-byline, .article-contents {
+  .base-grid, .article-title, .article-contents {
 
     grid-template-columns: [screen-start] 1fr [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 50px 50px 50px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
     grid-column-gap: 16px;
@@ -578,6 +593,11 @@ figure p {
   }
 
   .test-article-title {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .article-byline {
     margin-left: 20%;
     margin-right: 20%;
   }
@@ -653,7 +673,7 @@ figure p {
 
 @media (min-width: 1180px) {
 
-  .base-grid, .article-title, .article-byline, .article-contents {
+  .base-grid, .article-title, .article-contents {
 
     grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
     grid-column-gap: 32px;
