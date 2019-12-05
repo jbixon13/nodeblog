@@ -22,6 +22,14 @@ p {
   margin-top: 0;
 }
 
+code {
+font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+padding: 2px 4px;
+color: #004276;
+background-color: rgb(207, 223, 235);
+border-radius: 4px;
+}
+
 header {
   display: block;
   position: relative;
