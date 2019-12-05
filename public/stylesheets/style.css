@@ -560,6 +560,8 @@ figure .plotly {
     display: flex;
     background-color: #f3f3f3;
     padding: 1rem;
+    display: flex;
+    flex-direction: row;
   }
   
   .scrolly-vers > * {
@@ -572,6 +574,7 @@ figure .plotly {
     position: relative;
     padding: 0 1rem;
     max-width: 20rem;
+    order: 1;
   }
   
   .scrolly-vers figure img {
@@ -581,6 +584,7 @@ figure .plotly {
   
   .scrolly-vers .deck-figure {
     text-align: inherit;
+    order: 2;
   }
   
   .scrolly-vers .deck-container {
