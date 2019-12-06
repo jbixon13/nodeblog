@@ -700,3 +700,24 @@ figure .plotly {
     grid-column-gap: 32px;
   }
 }
+
+@media (min-width: 1500px) {
+  .test-article-title {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .article-byline {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .test-article h1,
+  .test-article h2,
+  .test-article h3,
+  .test-article p {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+}
