@@ -34,8 +34,10 @@ block article-content
                 div(class="step", data-step="4")
                     p Step 4
 
-        h3 Scrolly Side - Plotly
-        section(class="scrolly-side")
+        h3 Scrolly Vers - Plotly
+        section(class="scrolly-vers")
+            figure(class="plotly-figure")
+                iframe(class="plotly", frameborder="0", src="//plot.ly/~jbixon13/1.embed")        
             article
                 div(class="step", data-step="1")
                     p This is a plotly chart
@@ -45,9 +47,6 @@ block article-content
                     p Hopefully using iframes doesn't harm performance too much
                 div(class="step", data-step="4")
                     p I wonder if charts created using ggplotly are slower than native plotly charts here as well
-            figure
-                iframe(class="plotly", frameborder="0", src="//plot.ly/~jbixon13/1.embed")
-
 
         h3 Scrolly Side - Deck.gl
         section(class="scrolly-side")

@@ -581,6 +581,11 @@ figure .plotly {
     max-width: 100%;
     max-height: 80vh;
   }
+
+  .scrolly-vers .plotly-figure {
+    text-align: inherit;
+    order: 2;
+  }
   
   .scrolly-vers .deck-figure {
     text-align: inherit;
