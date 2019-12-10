@@ -153,7 +153,7 @@ block article-content
             mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
             mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
             container: 'map3',
-            controller: false,
+            controller: true,
             touchAction: 'pan-y',
             viewState: {
                 longitude: VIEWS[0].longitude,
@@ -175,8 +175,8 @@ block article-content
                     latitude: VIEWS[1].latitude,
                     zoom: VIEWS[1].zoom,
                     pitch: 60,
-                    transitionInterpolator: new LinearInterpolator(['zoom']),
-                    transitionDuration: 5000
+                    transitionInterpolator: new FlyToInterpolator(),
+                    transitionDuration: 4000
                 }
             })
         }
@@ -188,7 +188,9 @@ block article-content
                         longitude: VIEWS[0].longitude,
                         latitude: VIEWS[0].latitude,
                         zoom: VIEWS[0].zoom,
-                        pitch: 60
+                        pitch: 60,
+                        transitionInterpolator: new FlyToInterpolator(),
+                        transitionDuration: 4000
                     }
                 })
             }
