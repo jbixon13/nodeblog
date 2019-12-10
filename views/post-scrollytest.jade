@@ -144,6 +144,8 @@ block article-content
     script. 
         const {DeckGL, LinearInterpolator} = deck;
 
+        var currentIndex = 0;
+
         const VIEWS = [
             {"scene":"enter", "latitude":39.95, "longitude":-75.166, "zoom":13},
             {"scene":"exit", "latitude":39.95, "longitude":-75.166, "zoom":15}
@@ -156,9 +158,9 @@ block article-content
             controller: true,
             touchAction: 'pan-y',
             viewState: {
-                longitude: VIEWS[0].longitude,
-                latitude: VIEWS[0].latitude,
-                zoom: VIEWS[0].zoom,
+                longitude: VIEWS[currentIndex].longitude,
+                latitude: VIEWS[currentIndex].latitude,
+                zoom: VIEWS[currentIndex].zoom,
                 pitch: 60
             }
         });
@@ -168,26 +170,32 @@ block article-content
         var scroller = scrollama();
 
         function handleStepEnter(response) {
-            console.log(response)
-            deckglTest.setProps({
-                viewState: {
-                    longitude: VIEWS[1].longitude,
-                    latitude: VIEWS[1].latitude,
-                    zoom: VIEWS[1].zoom,
-                    pitch: 60,
-                    transitionInterpolator: new FlyToInterpolator(),
-                    transitionDuration: 4000
-                }
-            })
+            if (response.direction === 'down') {
+                console.log(response)
+                currentIndex +=1;
+                deckglTest.setProps({
+                    viewState: {
+                        longitude: VIEWS[currentIndex].longitude,
+                        latitude: VIEWS[currentIndex].latitude,
+                        zoom: VIEWS[currentIndex].zoom,
+                        pitch: 60,
+                        transitionInterpolator: new FlyToInterpolator(),
+                        transitionDuration: 4000
+                    }
+                })
+            }
+
+
         }
 
         function handleStepExit(response) {
             if (response.direction === 'up') {
+                currentIndex -=1;
                 deckglTest.setProps({
                     viewState: {
-                        longitude: VIEWS[0].longitude,
-                        latitude: VIEWS[0].latitude,
-                        zoom: VIEWS[0].zoom,
+                        longitude: VIEWS[currentIndex].longitude,
+                        latitude: VIEWS[currentIndex].latitude,
+                        zoom: VIEWS[currentIndex].zoom,
                         pitch: 60,
                         transitionInterpolator: new FlyToInterpolator(),
                         transitionDuration: 4000
