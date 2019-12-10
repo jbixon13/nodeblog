@@ -631,6 +631,11 @@ figure .plotly {
     margin-left: 20%;
     margin-right: 20%;
   }
+
+  .step p {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media (min-width: 1024px) {
