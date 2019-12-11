@@ -658,6 +658,11 @@ figure .plotly {
     font-weight: 300;
     line-height: 1.7em;    
   }
+
+  .step p {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media (min-width: 1080px) {

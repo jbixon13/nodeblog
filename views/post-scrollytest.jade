@@ -78,7 +78,7 @@ block article-content
                 div(class="step transition", data-step="5")
                     p You can see the buildings in downtown Philly are much bigger than the ones in downtown Baltimore
                 div(class="step", data-step="6")
-                    p This is an illustrative example of multiple key concepts for my scrollytelling components: they are useful on mobile and desktop and they transition smoothly to continue the narrative
+                    p This is an illustrative example of key concepts for my scrollytelling components: they are useful on mobile and desktop and they transition smoothly to continue the narrative
 
         h2 Conclusion
         p Scroll
@@ -132,7 +132,7 @@ block article-content
             mapboxApiAccessToken: 'pk.eyJ1IjoiamJpeG9uIiwiYSI6ImNqd3pmYm15djFmajEzeW50bTcyNjlubXoifQ.IKupMx-qfYG4Gchw_Utupg',
             mapStyle: 'mapbox://styles/jbixon/cjxchrj87086s1ct8cs8m351s',
             container: 'map3',
-            controller: true,
+            controller: {scrollZoom: false, dragPan: false},
             touchAction: 'pan-y',
             viewState: {
                 longitude: VIEWS[currentIndex].longitude,
