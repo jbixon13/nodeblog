@@ -91,4 +91,8 @@ router.get('/new-blog', function(req, res){
   });
 });
 
+router.get('https://mario-plumber.herokuapp.com/hello/world', function(req, res){
+  console.log('hi there');
+});
+
 module.exports = router;

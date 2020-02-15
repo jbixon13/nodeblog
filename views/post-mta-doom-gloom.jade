@@ -5,7 +5,9 @@ block article-content
         h2 Intro
         p It's no secret that New Yorkers love to hate their subway system. I was inspired to more critically analyze it after reading this #[a(href="https://www.citylab.com/transportation/2018/04/why-new-york-city-stopped-building-subways/557567/") CityLab] article that contextualizes the history of the MTA. I am specifically interested in whether it truly is degrading by using their publically maintained performance metrics. Some of these metrics have opaque names, so I'll specify where necessary. 
 
-        section(class="scrolly-side")
+        section(class="scrolly-vers")
+            figure(class="plotly-figure")
+                iframe(class="plotly", frameborder="0", src="/assets/charts/test.html")
             article
                 div(class="step", data-step="1")
                     p This is a plotly chart
@@ -15,9 +17,21 @@ block article-content
                     p Hopefully using iframes doesn't harm performance too much
                 div(class="step", data-step="4")
                     p(style="margin-left: 5%; margin-right: 5%") "Terminal On-Time Performance measures the percentage of trains arriving at their destination terminals as scheduled. A train is counted as on-time if it arrives at its destination early, on time, or no more than five minutes late, and has not skipped any planned stops. TOTP is a legacy metric that provides a measure of trains arriving within the standard, and not a direct measure of customer travel time, particularly since relatively few customers travel all the way to the end of a line." - MTA
-            figure
-                iframe(class="plotly", frameborder="0", src="/assets/charts/test.html")
-        
+
+        section(class="scrolly-vers")
+            figure(class="plotly-figure")
+                iframe(class="plotly", frameborder="0", src="http://mario-plumber.herokuapp.com/MTA_article/plot2")
+            article
+                div(class="step", data-step="1")
+                    p(style="margin-left: 5%; margin-right: 5%") "Terminal On-Time Performance measures the percentage of trains arriving at their destination terminals as scheduled. A train is counted as on-time if it arrives at its destination early, on time, or no more than five minutes late, and has not skipped any planned stops. TOTP is a legacy metric that provides a measure of trains arriving within the standard, and not a direct measure of customer travel time, particularly since relatively few customers travel all the way to the end of a line." - MTA
+
+        section(class="scrolly-vers")
+            figure(class="plotly-figure")
+                iframe(class="plotly", frameborder="0", src="http://mario-plumber.herokuapp.com/MTA_article/plot3")
+            article
+                div(class="step", data-step="1")
+                    p(style="margin-left: 5%; margin-right: 5%") "Terminal On-Time Performance measures the percentage of trains arriving at their destination terminals as scheduled. A train is counted as on-time if it arrives at its destination early, on time, or no more than five minutes late, and has not skipped any planned stops. TOTP is a legacy metric that provides a measure of trains arriving within the standard, and not a direct measure of customer travel time, particularly since relatively few customers travel all the way to the end of a line." - MTA
+
         p There is a lot of information that can be lost in rapid-fire chart presentation, but the overall theme is that the subways of New York City are less reliable, break down more, and yet are responsible for moving more and more people.
         p An interesting note is that when looking at the MTA’s performance dashboard, their charts use the same underlying data to tell a very different story.
         p This is a perfect opportunity to weigh in on the perennial debate around truncated y axes with a concrete example. As is the case in most methodology questions, there are very few decisions that have a clear cut answer without room for nuance. When considering truncated y axes, one should express the question they are answering about their data in the decision.
