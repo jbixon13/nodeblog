@@ -7,7 +7,7 @@ block article-content
 
         section(class="scrolly-vers")
             figure(class="plotly-figure")
-                iframe(class="plotly", frameborder="0", src="/assets/charts/test.html")
+                iframe(class="plotly", frameborder="0", src="http://mario-plumber.herokuapp.com/MTA_article/plot1")
             article
                 div(class="step", data-step="1")
                     p This is a plotly chart
@@ -30,7 +30,14 @@ block article-content
                 iframe(class="plotly", frameborder="0", src="http://mario-plumber.herokuapp.com/MTA_article/plot3")
             article
                 div(class="step", data-step="1")
-                    p(style="margin-left: 5%; margin-right: 5%") "Terminal On-Time Performance measures the percentage of trains arriving at their destination terminals as scheduled. A train is counted as on-time if it arrives at its destination early, on time, or no more than five minutes late, and has not skipped any planned stops. TOTP is a legacy metric that provides a measure of trains arriving within the standard, and not a direct measure of customer travel time, particularly since relatively few customers travel all the way to the end of a line." - MTA
+                    p(style="margin-left: 5%; margin-right: 5%") "Wait Assessment measures how regularly the trains are spaced during peak hours. To meet the standard, the headway (time between trains) can be no greater than 25% more than the scheduled headway. This provides a percentage of trains passing the standard, but does not account for extra service operated, is not weighted to how many customers are waiting for the trains at different stations, does not distinguish between relatively minor gaps in service and major delays, and is not a true measurement of time customers spend waiting on the platform." - MTA
+
+        section(class="scrolly-vers")
+            figure(class="plotly-figure")
+                iframe(class="plotly", frameborder="0", src="http://mario-plumber.herokuapp.com/MTA_article/plot4")
+            article
+                div(class="step", data-step="1")
+                    p(style="margin-left: 5%; margin-right: 5%") "Mean Distance Between Failures (MDBF) reports how frequently car-related problems such as door failures, loss of motor power, or brake issues cause a delay of over five minutes. It is calculated by dividing the number of miles train cars run in service by the number of incidents due to car‐related problems." - MTA
 
         p There is a lot of information that can be lost in rapid-fire chart presentation, but the overall theme is that the subways of New York City are less reliable, break down more, and yet are responsible for moving more and more people.
         p An interesting note is that when looking at the MTA’s performance dashboard, their charts use the same underlying data to tell a very different story.
